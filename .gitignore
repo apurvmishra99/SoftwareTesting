@@ -1,5 +1,7 @@
 /BugTest.class
-
+out/*
+.vscode/*
+.idea/*
 # Compiled class file
 *.class
 
