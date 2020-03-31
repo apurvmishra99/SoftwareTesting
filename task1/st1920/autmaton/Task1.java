@@ -1,4 +1,5 @@
-import org.junit.jupiter.api.Test;
+package st1920.autmaton;
+import org.junit.Test;
 
 import st1920.automaton.RegExpMatcher;
 
