@@ -7,7 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="lib" path="/home/apurv/SoftwareTesting/automaton.zip"/>
 	<classpathentry kind="lib" path="/home/apurv/SoftwareTesting/automaton.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
