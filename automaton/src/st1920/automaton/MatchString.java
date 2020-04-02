@@ -18,13 +18,13 @@ public class MatchString {
 		this.string = string;
 	}
 
-	public MatchString makeAlpha(MatchString m) {
+	public MatchString makeAlpha() {
 		Random random = new Random();
 		final String alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		return new MatchString(Character.toString(alpha.charAt(random.nextInt(alpha.length()))));
 	}
 
-	public MatchString makenNum(MatchString m) {
+	public MatchString makenNum() {
 		Random random = new Random();
 		final String nums = "1234567890";
 		return new MatchString(Character.toString(nums.charAt(random.nextInt(nums.length()))));

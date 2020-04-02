@@ -8,92 +8,129 @@ public class Task3_2 {
 
 	@Test
 	public void testTask3_2_01() {
-		assertFalse(RegExpMatcher.matches("a", "a{0}"));
+		REString reString = new REString("a{0}");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_02() {
-		assertTrue(RegExpMatcher.matches("a", "a{0,}"));
+		REString reString = new REString("a{0,}");
+		MatchString mString = new MatchString("a");
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_03() {
-		assertTrue(RegExpMatcher.matches("a", "a{0,2}"));
+		REString reString = new REString("a{0,2}");
+		MatchString mString = new MatchString("a");
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_04() {
-		assertFalse(RegExpMatcher.matches("a", "a{2,3}"));
+		REString reString = new REString("a{2, 3}");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_05() {
-		assertFalse(RegExpMatcher.matches("a", "a{2,1}"));
+		REString reString = new REString("a{2,1}");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_06() {
-		assertFalse(RegExpMatcher.matches("a", "1{a,b}"));
+		REString reString = new REString("1{a,b}");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_07() {
-		assertTrue(RegExpMatcher.matches("a", "a{1,20}"));
+		REString reString = new REString("a{1, 20}");
+		MatchString mString = new MatchString("a");
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_08() {
-		assertTrue(RegExpMatcher.matches("a", "a&a"));
+		REString reString = new REString("a{0}");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_09() {
-		assertFalse(RegExpMatcher.matches("a", ".*&a"));
+		REString reString = new REString(".*&a");
+		MatchString mString = new MatchString("a");
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_10() {
-		assertFalse(RegExpMatcher.matches("a", "a&.*"));
+		REString reString = new REString("a&.*");
+		MatchString mString = new MatchString("a");
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_11() {
-		assertTrue(RegExpMatcher.matches("a", ".*&.*"));
+		REString reString = new REString(".*&.*");
+		MatchString mString = new MatchString("a");
+
+		assertTrue(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_12() {
-		assertTrue(RegExpMatcher.matches("a", "~a"));
+		REString reString = new REString("~a");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_13() {
-		assertFalse(RegExpMatcher.matches("a", "<11>"));
+		REString reString = new REString("<11>");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_14() {
-		assertFalse(RegExpMatcher.matches("a", "<2"));
+		REString reString = new REString("<2");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testTask3_2_15() {
-		assertFalse(RegExpMatcher.matches("a", "\""));
+		REString reString = new REString("\"");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_16() {
-		assertFalse(RegExpMatcher.matches("a", "[^1-9a-]]"));
+		REString reString = new REString("[^1-9a-]]");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_17() {
-		assertTrue(RegExpMatcher.matches("a", "<3-2>"));
+		REString reString = new REString("<3-2>");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 	@Test
 	public void testTask3_2_18() {
-		assertTrue(RegExpMatcher.matches("a", "<0-1>"));
+		REString reString = new REString("<0-1>");
+		MatchString mString = new MatchString("a");
+		assertFalse(RegexWrapper.matches(mString, reString));
 	}
 
 }
