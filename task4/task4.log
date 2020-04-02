@@ -1,0 +1,112 @@
+commit df9e39396e7314a7edb08c458fcc6897e2b537ca (HEAD -> master)
+Author: GaganSD <gagandevagiri@gmail.com>
+Date:   Thu Apr 2 12:38:27 2020 +0100
+
+    added task4.patch
+
+A       task4/task4.patch
+
+commit ed0c35b6d6b6d1703ce229da0b2a4adc7bf5baa0
+Author: GaganSD <gagandevagiri@gmail.com>
+Date:   Thu Apr 2 12:22:09 2020 +0100
+
+    added all changes to RegExp
+
+M       task4/src/st1920/automaton/RegExp.java
+
+commit ff8b320ece3a30cbbff41d7a813bd979ebbafd69
+Author: GaganSD <gagandevagiri@gmail.com>
+Date:   Thu Apr 2 12:20:07 2020 +0100
+
+    revert RegExp to get git-log
+
+D       bugs/easy/1.png
+D       bugs/easy/11.png
+D       bugs/easy/2.png
+D       bugs/easy/3.png
+D       bugs/easy/3_1.png
+D       bugs/easy/4.png
+D       bugs/hard/12.png
+D       bugs/medium/7.png
+D       bugs/medium/9.png
+M       task4/src/st1920/automaton/RegExp.java
+
+commit 80fbf9e866d74c90d4ce18e9c303fc77118504fb (origin/master, origin/HEAD)
+Merge: 4b095b0 0f07e11
+Author: GaganSD <gagandevagiri@gmail.com>
+Date:   Wed Apr 1 05:15:28 2020 +0100
+
+    Merge branch 'master' of https://github.com/apurvmishra99/SoftwareTesting
+
+commit 4b095b0b6621c1eaffa4416d8d79a331129430c5
+Author: GaganSD <gagandevagiri@gmail.com>
+Date:   Wed Apr 1 05:15:04 2020 +0100
+
+    First draft of Task4.java, extended RegExp.java - might be buggy
+
+A       task4/INSTALL
+A       task4/README
+A       task4/build.xml
+A       task4/pom.xml
+A       task4/src/Task4.java
+A       task4/src/Unicode.txt
+A       task4/src/st1920/automaton/Automaton.java
+A       task4/src/st1920/automaton/AutomatonProvider.java
+A       task4/src/st1920/automaton/BasicAutomata.java
+A       task4/src/st1920/automaton/BasicOperations.java
+A       task4/src/st1920/automaton/MinimizationOperations.java
+A       task4/src/st1920/automaton/RegExp.java
+A       task4/src/st1920/automaton/RegExpMatcher.java
+A       task4/src/st1920/automaton/State.java
+A       task4/src/st1920/automaton/StatePair.java
+A       task4/src/st1920/automaton/Transition.java
+A       task4/src/st1920/automaton/TransitionComparator.java
+A       task4/src/st1920/automaton/package.html
+A       task4/test/st1920/automaton/Example.java
+
+commit 0f07e117fbd8d6bdc63db91b62e3ad294c1b5449
+Author: Apurv Mishra <apurvmishra99@gmail.com>
+Date:   Wed Apr 1 00:29:59 2020 +0530
+
+    Task2
+
+A       Screenshot from 2020-03-31 22-14-30.png
+
+commit e901d8fe041ba2205bcad04cd8b71b1e8c8a4a64
+Author: Apurv <apurvmishra99@gmail.com>
+Date:   Wed Apr 1 00:28:42 2020 +0530
+
+    Task 3 done but needs improvement
+
+A       automaton/.gitignore
+M       automaton/pom.xml
+A       automaton/src/st1920/automaton/MatchString.java
+A       automaton/src/st1920/automaton/REString.java
+M       automaton/src/st1920/automaton/RegExpMatcher.java
+A       automaton/src/st1920/automaton/RegexWrapper.java
+A       automaton/test/st1920/automaton/Task3_1.java
+A       automaton/test/st1920/automaton/Task3_2.java
+A       automaton/test/st1920/automaton/Task3_all.java
+D       automaton/test/st1920/automaton/Task_3_1.java
+A       classes.txt
+A       task1/.classpath
+A       task1/.project
+R097    task1/Task1.java        task1/st1920/autmaton/Task1.java
+
+commit da02279e1f1a9075e6abc80431f698686423056c
+Merge: 39439da 2fe61d6
+Author: Apurv <apurvmishra99@gmail.com>
+Date:   Mon Mar 30 16:47:08 2020 +0530
+
+    Merge branch 'master' of github.com:apurvmishra99/SoftwareTesting
+
+commit 39439da543b1ea7186b844ff0fea76b1aa11598a
+Author: Apurv <apurvmishra99@gmail.com>
+Date:   Mon Mar 30 16:46:57 2020 +0530
+
+    Task3.1 done
+
+D       .classpath
+D       BugTest.java
+A       SoftwareTesting.iml
+A       automaton/.classpath
