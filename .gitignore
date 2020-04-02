@@ -6,7 +6,9 @@ out/*
 *.class
 
 # Log file
-*.log
+# *.log
+## Removed this to upload task4.log 
+
 
 # BlueJ files
 *.ctxt
