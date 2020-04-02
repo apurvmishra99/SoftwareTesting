@@ -1,0 +1,11 @@
+Advantages
+* Few requirements, the setup is easy and can be executed at different levels of cutomizations depending on the requirements of the tester.
+* Gives unbiased test cases.
+* Is extremely fast and immensely reduces the workload of the tester, by doing most of the grunt work for him.
+* By using randoop we got a full regression test suite without putting in manaul effort.
+
+Diadvantages
+* The tests generated are unmaintainable. Even running for a short amount of time can produces >100000 lines of tests and each test methos might be 200 lines long.
+* Use of random functions result in generation of flaky tests.
+* It can't find deep errors or it never can generate a perfect test suite, manual work is necessary.
+* Randoop is not intelligent, and produces many similar test cases.  
