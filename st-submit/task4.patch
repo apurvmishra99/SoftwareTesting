@@ -1,47 +1,49 @@
-PS C:\Users\gagan\Desktop\GitHub\SoftwareTesting> git diff ed0c35b6d6b6d1703ce229da0b2a4adc7bf5baa0 ff8b320ece3a30cbbff41d7a813bd979ebbafd69
 diff --git a/task4/src/st1920/automaton/RegExp.java b/task4/src/st1920/automaton/RegExp.java
-index ee66cbd..1290c85 100644
+index 1290c85..9f170ea 100644
 --- a/task4/src/st1920/automaton/RegExp.java
 +++ b/task4/src/st1920/automaton/RegExp.java
-@@ -118,7 +118,6 @@ public class RegExp {
+@@ -118,6 +118,7 @@ public class RegExp {
                 REGEXP_EMPTY,
                 REGEXP_STRING,
                 REGEXP_ANYSTRING,
--               REGEXP_ENDLINE,
++               REGEXP_ENDLINE,
                 REGEXP_AUTOMATON,
                 REGEXP_INTERVAL
         }
-@@ -317,9 +316,6 @@ public class RegExp {
+@@ -316,6 +317,13 @@ public class RegExp {
                 case REGEXP_ANYSTRING:
                         a = BasicAutomata.makeAnyString();
                         break;
--               case REGEXP_ENDLINE:
--                       a = BasicAutomata.makeEndLine();
--                       break;
++               case REGEXP_ENDLINE:
++                       list = new ArrayList<Automata>();
++                       list.add(BasicAutomata.makeString("\n"));
++                       list.add(BasicAutomata.makeString("\r"));
++                       list.add(BasicAutomata.makeString("\r\n"));
++                       a = BasicOperations.union(list);
++                       break;
                 case REGEXP_AUTOMATON:
                         Automaton aa = null;
                         if (automata != null)
-@@ -481,13 +477,6 @@ public class RegExp {
+@@ -477,6 +485,13 @@ public class RegExp {
                 return r;
         }
 
--       private static RegExp makeEndLine() {
--               RegExp r = new RegExp("\n|(\r\n)|\r");
--               r.kind = Kind.REGEXP_ENDLINE;
--               return r;
--       }
--
--
++       private static RegExp makeEndLine() {
++               RegExp r = new RegExp("\n|(\r\n)|\r");
++               r.kind = Kind.REGEXP_ENDLINE;
++               return r;
++       }
++
++
         private static RegExp makeAutomaton(String s) {
                 RegExp r = new RegExp();
                 r.kind = Kind.REGEXP_AUTOMATON;
-@@ -632,8 +621,6 @@ public class RegExp {
+@@ -621,6 +636,8 @@ public class RegExp {
         private final RegExp parseSimpleExp() throws IllegalArgumentException {
                 if (match('.'))
                         return makeAnyChar();
--               else if (match('$'))
--                       return makeEndLine();
++               else if (match('$'))
++                       return makeEndLine();
                 else if (check(EMPTY) && match('#'))
                         return makeEmpty();
                 else if (check(ANYSTRING) && match('@'))
-(END)
