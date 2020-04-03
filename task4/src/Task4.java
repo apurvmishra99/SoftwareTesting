@@ -26,3 +26,16 @@ public class Task4 {
 		MatchString mString = new MatchString("\r\n");
         assert(RegexWrapper.matches(mString, reString));
 	}
+
+
+	public void testMatchDollar() {
+		REString reString = new REString("$");
+		MatchString mString = new MatchString("$");
+        assert(RegexWrapper.matches(mString, reString));
+	}
+
+	public void testMatchOr() {
+		REString reString = new REString("*");
+		MatchString mString = new MatchString("$");
+        assert(RegexWrapper.matches(mString, reString));
+	}
