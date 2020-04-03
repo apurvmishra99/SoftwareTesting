@@ -2,7 +2,6 @@ import st1920.automaton;
 import org.junit.Test;
 import static org.junit.Assert;
 
-@SuppressWarnings("WrongPackageStatement")
 public class Task4 {
 
 
