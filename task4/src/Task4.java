@@ -13,3 +13,9 @@ public class Task4 {
 		assert(RegexWrapper.matches(mString, reString));
 	}
 
+	@Test
+	public void TestmatchMacOS() {
+		REString reString = new REString("$");
+		MatchString mString = new MatchString("\r");
+        assert(RegexWrapper.matches(mString, reString));
+	}
