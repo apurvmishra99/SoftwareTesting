@@ -118,6 +118,7 @@ public class RegExp {
 		REGEXP_EMPTY,
 		REGEXP_STRING,
 		REGEXP_ANYSTRING,
+		REGEXP_ENDLINE,
 		REGEXP_AUTOMATON,
 		REGEXP_INTERVAL
 	}
@@ -316,6 +317,13 @@ public class RegExp {
 		case REGEXP_ANYSTRING:
 			a = BasicAutomata.makeAnyString();
 			break;
+		case REGEXP_ENDLINE:
+			list = new ArrayList<Automata>();
+			list.add(BasicAutomata.makeString("\n"));
+			// list.add(BasicAutomata.makeString("\r"));
+			// list.add(BasicAutomata.makeString("\r\n"));
+			a = BasicOperations.union(list);
+			break;
 		case REGEXP_AUTOMATON:
 			Automaton aa = null;
 			if (automata != null)
@@ -477,6 +485,13 @@ public class RegExp {
 		return r;
 	}
 
+	private static RegExp makeEndLine() {
+		RegExp r = new RegExp("\n|(\r\n)|\r");
+		r.kind = Kind.REGEXP_ENDLINE;
+		return r;
+	}
+
+
 	private static RegExp makeAutomaton(String s) {
 		RegExp r = new RegExp();
 		r.kind = Kind.REGEXP_AUTOMATON;
@@ -621,6 +636,8 @@ public class RegExp {
 	private final RegExp parseSimpleExp() throws IllegalArgumentException {
 		if (match('.'))
 			return makeAnyChar();
+		else if (match('$'))
+			return makeEndLine();
 		else if (check(EMPTY) && match('#'))
 			return makeEmpty();
 		else if (check(ANYSTRING) && match('@'))
