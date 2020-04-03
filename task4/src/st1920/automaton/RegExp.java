@@ -321,7 +321,7 @@ public class RegExp {
 			list = new ArrayList<Automata>();
 			list.add(BasicAutomata.makeString("\n"));
 			list.add(BasicAutomata.makeString("\r"));
-			// list.add(BasicAutomata.makeString("\r\n"));
+			list.add(BasicAutomata.makeString("\r\n"));
 			a = BasicOperations.union(list);
 			break;
 		case REGEXP_AUTOMATON:
