@@ -19,3 +19,10 @@ public class Task4 {
 		MatchString mString = new MatchString("\r");
         assert(RegexWrapper.matches(mString, reString));
 	}
+
+	@Test
+	public void testMatchWindows() {
+		REString reString = new REString("$");
+		MatchString mString = new MatchString("\r\n");
+        assert(RegexWrapper.matches(mString, reString));
+	}
