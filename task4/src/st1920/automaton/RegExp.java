@@ -320,7 +320,7 @@ public class RegExp {
 		case REGEXP_ENDLINE:
 			list = new ArrayList<Automata>();
 			list.add(BasicAutomata.makeString("\n"));
-			// list.add(BasicAutomata.makeString("\r"));
+			list.add(BasicAutomata.makeString("\r"));
 			// list.add(BasicAutomata.makeString("\r\n"));
 			a = BasicOperations.union(list);
 			break;
