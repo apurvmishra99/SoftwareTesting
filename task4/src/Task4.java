@@ -38,7 +38,3 @@ public class Task4 {
 		MatchString mString = new MatchString("$");
         assert(RegexWrapper.matches(mString, reString));
 	}
-
-    // TODO: Add tests for ., #, <n-m>
-
-

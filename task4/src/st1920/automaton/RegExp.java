@@ -318,7 +318,11 @@ public class RegExp {
 			a = BasicAutomata.makeAnyString();
 			break;
 		case REGEXP_ENDLINE:
-			a = BasicAutomata.makeEndLine();
+			list = new ArrayList<Automata>();
+			list.add(BasicAutomata.makeString("\n"));
+			list.add(BasicAutomata.makeString("\r"));
+			list.add(BasicAutomata.makeString("\r\n"));
+			a = BasicOperations.union(list);
 			break;
 		case REGEXP_AUTOMATON:
 			Automaton aa = null;
