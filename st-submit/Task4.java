@@ -39,6 +39,5 @@ public class Task4 {
         assert(RegexWrapper.matches(mString, reString));
 	}
 
-    // TODO: Add tests for ., #, <n-m>
 
 }

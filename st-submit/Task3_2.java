@@ -166,5 +166,25 @@ public class Task3_2 {
 		MatchString mString = new MatchString("1");
 		assert(RegexWrapper.matches(mString, reString));
 	}
+	@Test()
+	public void testTask3_2_24() {
+		REString reString = new REString("[^-?]");
+		MatchString mString = new MatchString("xxx");
+		assertFalse(RegexWrapper.matches(mString, reString));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void testTask3_2_25() {
+		REString reString = new REString("~a&<>");
+		MatchString mString = new MatchString("b");
+		assert(RegexWrapper.matches(mString, reString));
+	}
+
+	@Test()
+	public void testTask3_2_26() {
+		REString reString = new REString("/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/");
+		MatchString mString = new MatchString("https://github.com/username");
+		assertFalse(RegexWrapper.matches(mString, reString));
+	}
 	
 }
