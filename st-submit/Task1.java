@@ -1,43 +1,46 @@
-package st1920.autmaton;
+package st1920.automaton;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import st1920.automaton.RegExpMatcher;
 
 
-class Task1 {
+public class Task1 {
 	
 	//1 - Easy
 	@Test
 	public void emptyTest1() {
 
-		assert(RegExpMatcher.matches("", ""));
+		assertTrue(RegExpMatcher.matches("", ""));
 	}
 
 	//2 - Easy
 	@Test
 	public void emptyTest2() {
 
-		assert(RegExpMatcher.matches("x", ""));
+		assertFalse(RegExpMatcher.matches("x", ""));
 	}
 
 	//3 - Easy
 	@Test
 	public void testOr() {
 		
-		assert(RegExpMatcher.matches("x", "x|y"));
+		assertTrue(RegExpMatcher.matches("x", "x|y"));
 	}
 	
 	//4 - Easy
 	@Test
 	public void testMultiples() {
-		assert(RegExpMatcher.matches("abab", "(ab)\\2"));
+		assertFalse(RegExpMatcher.matches("abab", "(ab)\\2"));
 		
 	}
 
 	//5- Hard
 	@Test
 	public void testNumBetween() {
-		assert(RegExpMatcher.matches("3", "[1--4]"));
+		assertFalse(RegExpMatcher.matches("3", "[1--4]"));
 	}
 	
 	//6 - Hard
@@ -51,63 +54,63 @@ class Task1 {
 			longStrX += strX;
 		}
 		
-		assert(RegExpMatcher.matches(longStrX, strX));
+		assertFalse(RegExpMatcher.matches(longStrX, strX));
 	}
 
 	//7 - Medium
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testAnyOccurances() {
-		assert(RegExpMatcher.matches("aa", "a{*}"));
+		assertFalse(RegExpMatcher.matches("aa", "a{*}"));
 	}
 	
 	//8 - Medium
 	@Test
 	public void testZeroOrMoreTwice() {
-		assert(RegExpMatcher.matches("a", "a**"));	
+		assertTrue(RegExpMatcher.matches("a", "a**"));	
 	}
 
 	//9 - Medium
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testNOccurances() {
-		assert(RegExpMatcher.matches("a", "<-1>"));
+		assertFalse(RegExpMatcher.matches("a", "<-1>"));
 		
 	}
 
 	//10 - Hard
 	@Test
 	public void testFirstMatch() {
-		assert(RegExpMatcher.matches("xyz-420", "xyz"));
+		assertFalse(RegExpMatcher.matches("xyz-420", "xyz"));
 		
 	}
 
 	//11 - Easy
 	@Test
 	public void testZeroOrOne() {
-		assert(RegExpMatcher.matches("xxx", "xx?x"));
+		assertTrue(RegExpMatcher.matches("xxx", "xx?x"));
 	}
 
 	//12 - Hard
 	@Test
 	public void testParenthesis1() {
-		assert(RegExpMatcher.matches("xyz", "((x))"));		
+		assertFalse(RegExpMatcher.matches("xyz", "((x))"));		
 	}
 
 	//13 - Hard
 	@Test
 	public void testParenthesis2() {
-		assert(RegExpMatcher.matches("yeet", "()eet"));
+		assertFalse(RegExpMatcher.matches("yeet", "()eet"));
 	}
 
 	//14 - Medium
-	@Test
+	@Test(expected = IllegalArgumentException.class)
 	public void testDoesNotMatchStr() {
-		assert(RegExpMatcher.matches("yeet", "[^a"));
+		assertFalse(RegExpMatcher.matches("yeet", "[^a"));
 	}
 
 	//15 - Medium
 	@Test
 	public void testSubstring() {
-		assert(RegExpMatcher.matches("a-123-b-456-c", "abc"));
+		assertFalse(RegExpMatcher.matches("a-123-b-456-c", "abc"));
 
 	}
 

@@ -1,0 +1,167 @@
+diff --git a/RegexWrapper.java b/RegexWrapper.java
+new file mode 100644
+index 0000000..b80fc2c
+--- /dev/null
++++ b/RegexWrapper.java
+@@ -0,0 +1,7 @@
++package st1920.automaton;
++
++public class RegexWrapper {
++	public static boolean matches(MatchString m, REString re) {
++		return RegExpMatcher.matches(m.getString(), re.getReString());
++	}
++}
+diff --git a/REString.java b/REString.java
+new file mode 100644
+index 0000000..b6985b0
+--- /dev/null
++++ b/REString.java
+@@ -0,0 +1,91 @@
++package st1920.automaton;
++
++import java.util.Random;
++
++public class REString {
++
++	private String reString;
++
++	public REString(String reString) {
++		this.reString = reString;
++	}
++
++	public String getReString() {
++		return reString;
++	}
++
++	public void setReString(String reString) {
++		this.reString = reString;
++	}
++
++	public static REString makeAlpha(REString re) {
++		Random random = new Random();
++		final String alphaNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
++		return new REString(re.getReString() + Character.toString(alphaNum.charAt(random.nextInt(alphaNum.length()))));
++	}
++
++	public REString makeRange(REString re) {
++		Random random = new Random();
++		return new REString(re.getReString() + String.format("<%d-%d>", random.nextInt(1000), random.nextInt(1000)));
++	}
++
++	public REString makeRepeatRange(REString re) {
++		Random random = new Random();
++		return new REString(re.getReString() + String.format("{%d,%d}", random.nextInt(1000), random.nextInt(1000)));
++	}
++
++	public REString makeRepeatMoreThan(REString re) {
++		Random random = new Random();
++		return new REString(re.getReString() + String.format("{%d,}", random.nextInt(1000)));
++	}
++
++	public REString makeRepeatExact(REString re) {
++		Random random = new Random();
++		return new REString(re.getReString() + String.format("{%d}", random.nextInt(1000)));
++	}
++
++	public REString makeConcatenation(REString re1, REString re2) {
++		return new REString(re1.getReString() + re2.getReString());
++	}
++
++	public REString makeZeroOrMore(REString re) {
++		return new REString(re.getReString() + "*");
++	}
++
++	public REString makeOneOrMore(REString re) {
++		return new REString(re.getReString() + "+");
++	}
++
++	public REString makeZeroOrOne(REString re) {
++		return new REString(re.getReString() + "?");
++	}
++
++	public REString makeExclude(REString re) {
++		return new REString("~" + re.getReString());
++	}
++
++	public REString makeClass(REString re) {
++		return new REString("[" + re.getReString() + "]");
++	}
++
++	public REString makeExcludeClass(REString re) {
++		return new REString("[^" + re.getReString() + "]");
++	}
++
++	public REString makeAnyChar(REString re) {
++		return new REString(re.getReString() + ".");
++	}
++
++	public REString makeNothing(REString re) {
++		return new REString(re.getReString() + "#");
++	}
++
++	public REString makeAny(REString re) {
++		return new REString(re.getReString() + "@");
++	}
++
++	public REString makeGroup(REString re) {
++		return new REString("(" + re.getReString() + ")");
++	}
++
++}
+diff --git a/MatchString.java b/MatchString.java
+new file mode 100644
+index 0000000..a0ec9e3
+--- /dev/null
++++ b/MatchString.java
+@@ -0,0 +1,51 @@
++package st1920.automaton;
++
++import java.util.Random;
++
++public class MatchString {
++
++	private String string;
++
++	public MatchString(String string) {
++		this.string = string;
++	}
++
++	public String getString() {
++		return string;
++	}
++
++	public void setString(String string) {
++		this.string = string;
++	}
++
++	public MatchString makeAlpha() {
++		Random random = new Random();
++		final String alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
++		return new MatchString(Character.toString(alpha.charAt(random.nextInt(alpha.length()))));
++	}
++
++	public MatchString makenNum() {
++		Random random = new Random();
++		final String nums = "1234567890";
++		return new MatchString(Character.toString(nums.charAt(random.nextInt(nums.length()))));
++	}
++
++	public MatchString makeConcatenation(MatchString p, MatchString r) {
++		return new MatchString(p.getString() + r.getString());
++	}
++	
++//	public void generateRandomAlphanumericString() {
++//	    int leftLimit = 48; // numeral '0'
++//	    int rightLimit = 122; // letter 'z'
++//	    int targetStringLength = 10;
++//	    Random random = new Random();
++//	 
++//	    String generatedString = random.ints(leftLimit, rightLimit + 1)
++//	      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
++//	      .limit(targetStringLength)
++//	      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
++//	      .toString();
++//	 
++//	    System.out.println(generatedString);
++//	}
++}
